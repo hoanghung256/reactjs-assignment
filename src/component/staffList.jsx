@@ -4,27 +4,29 @@ import React, { useState } from 'react';
 import StaffDetail from './staffDetail';
 function StaffList(params) {
 
-  const [staffInfo, setStaffInfo] = useState(0);
+  const [staffInfo, setStaffInfo] = useState(null);
 
-
-  let staffs = params.staffs.map(staff => {
-    function onclickStaff(staff) {
-      console.log(staff);
-      // setStaffInfo(staff)
-    }
-    return (
-      <div key={staff.id} onClick={onclickStaff(staff)}>
-        {staff.name}
-      </div>
-    )
-  })
+  function onclickStaff(staffName) {
+    setStaffInfo(params.staffs.find(staff => staff.name === staffName))
+    console.log(params.staffs.find(staff => staff.name === staffName))
+  }
 
   return (
     <div>
       <div className='staff-list'>
-        {staffs}
+        {params.staffs.map(staff => {
+          return (
+            <div key={staff.id} >
+
+              <button onClick={() => onclickStaff(staff.name)}>
+                {staff.name}
+              </button>
+            </div>
+          )
+        })}
+        {/* Only display if staffInfo != null */}
+        {staffInfo ? <StaffDetail staff={staffInfo} /> : null}
       </div>
-      <StaffDetail staff={staffInfo} ></StaffDetail>
     </div>
   )
 }

@@ -1,15 +1,18 @@
 import React from 'react'
 
 
-function StaffDetail(staff) {
-  console.log(staff);
+function StaffDetail(s) {
+  console.log(s.staff)
   return (
     <div>
       <div>
-        {staff.name}
+        {s.staff.name}
       </div>
       <div>
-        {staff.doB}
+        {s.staff.doB}
+      </div>
+      <div>
+        <img width='100px' src={s.staff.image}/>
       </div>
     </div>
   )

@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.staff-list{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.staff-list div {
+  padding: 10px;
+}

@@ -1,4 +1,4 @@
-const DEPARTMENTS = require('./departments')
+// const DEPARTMENTS = require('./departments')
 exports.STAFFS =
     [
         {

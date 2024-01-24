@@ -8,3 +8,4 @@ function staff(params) {
         </div>
     )
 }
+export default staff;

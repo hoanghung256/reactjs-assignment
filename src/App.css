@@ -1,9 +1,5 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
-  height: 40vmin;
+  height: 5vmin;
   pointer-events: none;
 }
 
@@ -15,12 +11,9 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 7vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
@@ -34,5 +27,41 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.staff-list {
+  display: grid;
+}
+
+.wrapper {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.staff-detail {
+  border: 1px solid;
+  border-radius: 3px;
+  padding-left: 10px;
+}
+
+/* Responsive for mobile */
+@media only screen and (max-width: 767px) {
+  .staff-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive for tablet */
+@media only screen and (min-width: 768px) {
+  .staff-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Responsive for desktop */
+@media only screen and (min-width: 992px) {
+  .staff-list {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

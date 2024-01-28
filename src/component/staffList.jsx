@@ -1,35 +1,29 @@
-import React, {useState} from 'react';
-import StaffDetail from './staffDetail';
+import { React } from 'react';
+import { Link } from 'react-router-dom';
 
-function StaffList(params) {
-  const [staffDetail, setStaffDetail] = useState(null)
-
-  function showStaffDetail(staff) {
-    console.log(staff)
-    setStaffDetail(staff)
+function StaffList({ staffs, setState }) {
+  function setDetail(staff) {
+    setState(staff)
   }
-
-  function validateDetail(staffDetail, currentStaff) {
-    if (staffDetail !== null && staffDetail.id === currentStaff.id) {
-      return (
-        <StaffDetail staff={staffDetail}/>
-      )
-    }
-  }
-
+  
   return (
-      <div className='staff-list'>
-        {params.staffs.map(staff => 
-          <div key={staff.id} className='wrapper'>
-              <div className='staff-detail' onClick={() => showStaffDetail(staff)}>
-                <p>{staff.name}</p>
-                
-                {validateDetail(staffDetail, staff)}
-              </div>
+    <div className='staff-list mx-3'>
+      <div className='row'>
+        {staffs.map(staff =>
+          <div key={staff.id} className='wrapper col-sm-6 col-md-4 col-lg-2'>
+            <div className='staff-detail border border-dark rounded-1 mt-3'>
+              <Link to={`staffs/${staff.id}`} className='nav-link' onClick={() => setDetail(staff)}>
+                <img className='img-fluid' src={staff.image} alt="Staff image" />
+                <div className='text-center mt-2'>
+                  <p>{staff.name}</p>
+                </div>
+              </Link>
+            </div>
           </div>
         )}
       </div>
-  )
+    </div>
+  );
 }
 
-export default StaffList
+export default StaffList;

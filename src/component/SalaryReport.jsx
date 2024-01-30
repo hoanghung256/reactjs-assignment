@@ -4,7 +4,7 @@ function SalaryReport({ staffs }) {
     return (
         <div className="row mx-3">
             {staffs.map(staff =>
-                <div className="col-sm-6 col-md-4 col-lg-3 mt-3">
+                <div className="col-sm-6 col-md-4 col-lg-3 mt-3" key={staff.id}>
                     <div className=" border border-dark rounded-1">
                         <h4 className="mx-1">{staff.name}</h4>
                         <div className="mx-3">
@@ -12,7 +12,7 @@ function SalaryReport({ staffs }) {
                             <p>Salary scale: {staff.salaryScale}</p>
                             <p>Overtime: {staff.overTime}</p>
                             <hr />
-                            <p>Salary: {(30-staff.annualLeave)*salaryPerDay+staff.overTime*overTimeSalary} VND</p>
+                            <p>Salary: {(30 - staff.annualLeave) * salaryPerDay + staff.overTime * overTimeSalary} VND</p>
                         </div>
                     </div>
                 </div>

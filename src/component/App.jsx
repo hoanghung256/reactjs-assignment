@@ -20,7 +20,7 @@ function App() {
 
       <main className='container-fluid'>
         <Routes>
-          <Route path="/" element={<StaffList staffs={STAFFS} setState={setStaffDetail} />} />
+          <Route path="/" element={<StaffList staffs={STAFFS} setStaffDetail={setStaffDetail} />} />
           <Route path="/departments" element={<Departments departments={DEPARTMENTS} />} />
           <Route path="/staffs/:staffId" element={<StaffDetail staff={staffDetail} />} />
           <Route path="/salary" element={<SalaryReport staffs={STAFFS} />} />

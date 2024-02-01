@@ -14,7 +14,7 @@ exports.STAFFS =
         },
         {
           id: 1,
-          name: "Nguyễn Văn B",
+          name: "Trần Văn B",
           doB: "2000-01-01T08:59:00.000Z",
           salaryScale: 1.2,
           startDate: "2019-04-30T08:59:00.000Z",
@@ -25,7 +25,7 @@ exports.STAFFS =
         },
         {
           id: 2,
-          name: "Nguyễn Văn C",
+          name: "Bá Văn C",
           doB: "2001-01-01T08:59:00.000Z",
           salaryScale: 1,
           startDate: "2019-04-30T08:59:00.000Z",
@@ -36,7 +36,7 @@ exports.STAFFS =
         },
         {
           id: 3,
-          name: "Nguyễn Văn D",
+          name: "Cao Văn D",
           doB: "2002-01-01T08:59:00.000Z",
           salaryScale: 1,
           startDate: "2019-04-30T08:59:00.000Z",
@@ -58,7 +58,7 @@ exports.STAFFS =
         },
         {
           id: 5,
-          name: "Nguyễn Văn F",
+          name: "Lại Văn F",
           doB: "2003-01-01T08:59:00.000Z",
           salaryScale: 1,
           startDate: "2019-04-30T08:59:00.000Z",
@@ -69,7 +69,7 @@ exports.STAFFS =
         },
         {
           id: 6,
-          name: "Nguyễn Văn G",
+          name: "Lại Văn G",
           doB: "2003-01-05T08:59:00.000Z",
           salaryScale: 1,
           startDate: "2017-04-28T08:59:00.000Z",
@@ -80,7 +80,7 @@ exports.STAFFS =
         },
         {
           id: 7,
-          name: "Nguyễn Văn H",
+          name: "Đào Văn H",
           doB: "2003-01-01T08:59:00.000Z",
           salaryScale: 1,
           startDate: "2019-04-30T08:59:00.000Z",
@@ -91,7 +91,7 @@ exports.STAFFS =
         },
         {
           id: 8,
-          name: "Nguyễn Văn I",
+          name: "Đào Văn I",
           doB: "2003-01-01T08:59:00.000Z",
           salaryScale: 1,
           startDate: "2019-04-30T08:59:00.000Z",
@@ -102,7 +102,7 @@ exports.STAFFS =
         },
         {
           id: 9,
-          name: "Nguyễn Văn L",
+          name: "Lại Văn L",
           doB: "2002-01-01T08:59:00.000Z",
           salaryScale: 1,
           startDate: "2019-04-30T08:59:00.000Z",
@@ -113,7 +113,7 @@ exports.STAFFS =
         },
         {
           id: 10,
-          name: "Nguyễn Văn M",
+          name: "Lại Văn M",
           doB: "2003-01-01T08:59:00.000Z",
           salaryScale: 1,
           startDate: "2019-04-30T08:59:00.000Z",
@@ -124,7 +124,7 @@ exports.STAFFS =
         },
         {
           id: 11,
-          name: "Nguyễn Văn N",
+          name: "Trần Văn N",
           doB: "2003-01-01T08:59:00.000Z",
           salaryScale: 1,
           startDate: "2019-04-30T08:59:00.000Z",
@@ -135,7 +135,7 @@ exports.STAFFS =
         },
         {
           id: 12,
-          name: "Nguyễn Văn O",
+          name: "Trần Văn O",
           doB: "2003-01-01T08:59:00.000Z",
           salaryScale: 1,
           startDate: "2019-04-30T08:59:00.000Z",
@@ -157,7 +157,7 @@ exports.STAFFS =
         },
         {
           id: 14,
-          name: "Nguyễn Văn R",
+          name: "Lại Văn R",
           doB: "2003-01-01T08:59:00.000Z",
           salaryScale: 1,
           startDate: "2019-04-30T08:59:00.000Z",
@@ -168,7 +168,7 @@ exports.STAFFS =
         },
         {
           id: 15,
-          name: "Nguyễn Văn T",
+          name: "Đào Văn T",
           doB: "2001-01-01T08:59:00.000Z",
           salaryScale: 1,
           startDate: "2019-04-30T08:59:00.000Z",

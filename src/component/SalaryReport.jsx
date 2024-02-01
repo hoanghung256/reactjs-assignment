@@ -1,6 +1,14 @@
 function SalaryReport({ staffs }) {
     const salaryPerDay = 100000
     const overTimeSalary = 200000
+
+    // Assume that calculate salary formula is : work day * salary per day + hours of overtime * salary per overtime hour
+    function calculateSalary(staff) {
+        let formatter = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' });
+        let salary = (30 - staff.annualLeave) * salaryPerDay + staff.overTime * overTimeSalary;
+        return formatter.format(salary)
+    }
+    
     return (
         <div className="row mx-3">
             {staffs.map(staff =>
@@ -12,7 +20,7 @@ function SalaryReport({ staffs }) {
                             <p>Salary scale: {staff.salaryScale}</p>
                             <p>Overtime: {staff.overTime}</p>
                             <hr />
-                            <p>Salary: {(30 - staff.annualLeave) * salaryPerDay + staff.overTime * overTimeSalary} VND</p>
+                            <p>Salary: {calculateSalary(staff)}</p>
                         </div>
                     </div>
                 </div>

@@ -18,7 +18,7 @@ function StaffList({ staffs, setStaffDetail }) {
   return (
     <div>
       <div className='search-box d-flex justify-content-end mt-3'>
-          <input placeholder='Search staffs' type="text" className='mx-3' onChange={(event) => setSearch(event.target.value)}/>
+          <input placeholder='Search staffs' type="text" className='mx-3' onChange={(event) => setSearch(event.target.value)} onKeyDown={(event) => {if (event.key === 'Enter') { searchStaff() }}}/>
           <button className='btn btn-primary' onClick={() => searchStaff()}>Search</button>
       </div>
       <hr />

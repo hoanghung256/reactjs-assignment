@@ -5,11 +5,11 @@ function StaffList({ staffs, setStaffDetail }) {
   const [staffList, setStaffList] = useState(staffs)
   const [search, setSearch] = useState('')
 
-  function searchStaffByName() {
+  function searchStaff() {
     setStaffList(staffs.filter((staff) => {
       if (search.toLowerCase() === '') {  // Handle empty search box case
         return staff
-      } else if (staff.name.split(' ').pop().toLowerCase() === search.toLowerCase()) {
+      } else if (staff.name.toLowerCase().includes(search.toLowerCase())) {
         return staff
       }
     }))
@@ -19,7 +19,7 @@ function StaffList({ staffs, setStaffDetail }) {
     <div>
       <div className='search-box d-flex justify-content-end mt-3'>
           <input placeholder='Search staffs' type="text" className='mx-3' onChange={(event) => setSearch(event.target.value)}/>
-          <button className='btn btn-primary' onClick={() => searchStaffByName()}>Search</button>
+          <button className='btn btn-primary' onClick={() => searchStaff()}>Search</button>
       </div>
       <hr />
       <div className='staff-list mx-3'>

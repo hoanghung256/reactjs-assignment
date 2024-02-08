@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import AddStaff from "./AddStaff";
 import AddStaff from "./AddStaff";
 
-function StaffList({ url, setStaffDetail }) {
+function StaffList({ setStaffDetail }) {
   const [staffList, setStaffList] = useState([]);
   const [search, setSearch] = useState("");
   const [searchList, setSearchList] = useState([]);
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/staffs')
+      .get("http://localhost:8080/staffs")
       .then((res) => {
         setStaffList(res.data);
       })

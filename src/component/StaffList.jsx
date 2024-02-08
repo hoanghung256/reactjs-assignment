@@ -38,7 +38,7 @@ function StaffList({ url, setStaffDetail }) {
   return (
     <div>
       <div className="search-box d-flex justify-content-end mt-3">
-        <AddStaff setStaffList={setStaffList}/>
+        <AddStaff setStaffList={setStaffList} />
 
         <input
           placeholder="Search staffs"

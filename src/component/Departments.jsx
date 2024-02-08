@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function Departments({ api }) {
+function Departments() {
   const [departments, setDepartments] = useState([]);
 
   useEffect(() => {
     axios
-      .get(api)
+      .get('http://localhost:8080/departments')
       .then((res) => {
         setDepartments(res.data);
       })

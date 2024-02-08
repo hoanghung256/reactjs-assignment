@@ -10,10 +10,6 @@ import "../style/App.css";
 function App() {
   const [staffDetail, setStaffDetail] = useState(null);
 
-  const staffsAPI = "http://localhost:8080/staffs";
-  const departmentsAPI = "http://localhost:8080/departments";
-  const salaryAPI = "http://localhost:8080/staffsSalary";
-
   return (
     <div className="App">
       <header className="App-header">
@@ -25,18 +21,18 @@ function App() {
           <Route
             path="/"
             element={
-              <StaffList api={staffsAPI} setStaffDetail={setStaffDetail} />
+              <StaffList setStaffDetail={setStaffDetail} />
             }
           />
           <Route
             path="/departments"
-            element={<Departments api={departmentsAPI} />}
+            element={<Departments />}
           />
           <Route
             path="/staffs/:staffId"
             element={<StaffDetail staff={staffDetail} />}
           />
-          <Route path="/salary" element={<SalaryReport api={salaryAPI} />} />
+          <Route path="/salary" element={<SalaryReport />} />
         </Routes>
       </main>
     </div>

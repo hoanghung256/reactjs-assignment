@@ -2,15 +2,16 @@ import axios from "axios";
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AddStaff from "./AddStaff";
+import AddStaff from "./AddStaff";
 
-function StaffList({ api, setStaffDetail }) {
+function StaffList({ url, setStaffDetail }) {
   const [staffList, setStaffList] = useState([]);
   const [search, setSearch] = useState("");
   const [searchList, setSearchList] = useState([]);
 
   useEffect(() => {
     axios
-      .get(api)
+      .get('http://localhost:8080/staffs')
       .then((res) => {
         setStaffList(res.data);
       })

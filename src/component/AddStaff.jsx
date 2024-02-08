@@ -14,18 +14,21 @@ function AddStaff({ setStaffList }) {
       departmentId: document.getElementById("department").value,
       annualLeave: document.getElementById("leave").value,
       overTime: document.getElementById("overTime").value,
-      image: "https://cdn.pixabay.com/photo/2016/11/14/17/39/person-1824147_640.png"
+      image:
+        "https://cdn.pixabay.com/photo/2016/11/14/17/39/person-1824147_640.png",
     };
-    
-    setStaffList((prev) => [...prev, staff])
+
     axios
-      .post("http://localhost:8080/staffs", staff)
+      .post('http://localhost:8080/staffs', staff)
       .then((res) => {
         console.log(res);
       })
       .catch((err) => {
         console.log("Error ocurred: ", err);
       });
+
+    // Update staffList after post to back-end
+    setStaffList((prev) => [...prev, staff]);
   }
 
   return (

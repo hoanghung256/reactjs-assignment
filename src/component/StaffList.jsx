@@ -2,7 +2,6 @@ import axios from "axios";
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AddStaff from "./AddStaff";
-import AddStaff from "./AddStaff";
 
 function StaffList({ setStaffDetail }) {
   const [staffList, setStaffList] = useState([]);

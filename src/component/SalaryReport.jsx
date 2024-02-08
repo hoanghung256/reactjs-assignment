@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function SalaryReport({ api }) {
+function SalaryReport() {
   const [staffList, setStaffList] = useState([]);
   let formatter = new Intl.NumberFormat("vi-VN", {
     style: "currency",
@@ -10,7 +10,7 @@ function SalaryReport({ api }) {
 
   useEffect(() => {
     axios
-      .get(api)
+      .get("http://localhost:8080/staffsSalary")
       .then((res) => {
         setStaffList(res.data);
       })

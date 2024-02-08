@@ -1,6 +1,7 @@
 import axios from "axios";
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import AddStaff from "./AddStaff";
 
 function StaffList({ api, setStaffDetail }) {
   const [staffList, setStaffList] = useState([]);
@@ -36,6 +37,8 @@ function StaffList({ api, setStaffDetail }) {
   return (
     <div>
       <div className="search-box d-flex justify-content-end mt-3">
+        <AddStaff setStaffList={setStaffList}/>
+
         <input
           placeholder="Search staffs"
           type="text"

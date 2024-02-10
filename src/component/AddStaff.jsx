@@ -38,40 +38,35 @@ function AddStaff({ setStaffList }) {
     let message = {};
     Object.entries(formData).map(([key, value]) => {
       message = {
-        ...error,
+        ...message,
         ["for" + key.charAt(0).toUpperCase() + key.slice(1)]:
           validateInputLength(value),
       };
     });
 
     // Set error message if at least 1 field in error have value
-    if (
-      Object.values(message).some(
-        (value) => value !== undefined && value !== null
-      )
-    ) {
+    if (Object.values(message).some((value) => value)) {
       setErrorMessage(message);
       return false;
     }
-
-    console.log("return true from validateFormData");
     return true;
   }
 
-  function handleAddNewStaff() {
-    if (validateFormData() === false) {
+  function handleAddNewStaff(e) {
+    e.preventDefault(); // Prevent reload page when click Add button
+    if (!validateFormData()) {
       console.log("false from handleAddNewStaff");
       return;
     }
 
     let staff = {
-      name: document.getElementById("name").value,
-      doB: document.getElementById("dob").value,
-      startDate: document.getElementById("start-date").value,
-      salaryScale: document.getElementById("salary-scale").value,
-      departmentId: document.getElementById("department").value,
-      annualLeave: document.getElementById("leave").value,
-      overTime: document.getElementById("overtime").value,
+      name: e.target.name.value,
+      doB: e.target.dob.value,
+      startDate: e.target.startDate.value,
+      salaryScale: e.target.salaryScale.value,
+      departmentId: e.target.department.value,
+      annualLeave: e.target.leave.value,
+      overTime: e.target.overtime.value,
       image:
         "https://cdn.pixabay.com/photo/2016/11/14/17/39/person-1824147_640.png",
     };
@@ -116,124 +111,129 @@ function AddStaff({ setStaffList }) {
         aria-labelledby="contained-modal-title-vcenter"
         centered="true"
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Add new staff</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-5">
-                <p>Name </p>
+        <form onSubmit={(e) => handleAddNewStaff(e)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add new staff</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-5">
+                  <p>Name </p>
+                </div>
+                <div
+                  className="col-7"
+                  style={{ padding: "5px", marginTop: "0px" }}
+                >
+                  <input
+                    name="name"
+                    type="text"
+                    style={{ width: "13vw" }}
+                    onChange={(e) => handleInputChange(e, "name", "forName")}
+                  />
+                  <p className="text-danger">{errorMessage.forName}</p>
+                </div>
               </div>
-              <div
-                className="col-7"
-                style={{ padding: "5px", marginTop: "0px" }}
-              >
-                <input
-                  id="name"
-                  type="text"
-                  style={{ width: "13vw" }}
-                  onChange={(e) => handleInputChange(e, "name", "forName")}
-                />
-                <p className="text-danger">{errorMessage.forName}</p>
+              <div className="row">
+                <div className="col-5">
+                  <p>Date of birth </p>
+                </div>
+                <div
+                  className="col-7"
+                  style={{ padding: "5px", marginTop: "0px" }}
+                >
+                  <input
+                    name="dob"
+                    type="date"
+                    style={{ width: "13vw" }}
+                    onChange={(e) => handleInputChange(e, "dob", "forDob")}
+                  />
+                  <p className="text-danger">{errorMessage.forDob}</p>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-5">
+                  <p>Start date </p>
+                </div>
+                <div
+                  className="col-7"
+                  style={{ padding: "5px", marginTop: "0px" }}
+                >
+                  <input
+                    name="startDate"
+                    type="date"
+                    style={{ width: "13vw" }}
+                    onChange={(e) =>
+                      handleInputChange(e, "startDate", "forStartDate")
+                    }
+                  />
+                  <p className="text-danger">{errorMessage.forStartDate}</p>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-5">
+                  <p>Department </p>
+                </div>
+                <div
+                  className="col-7"
+                  style={{ padding: "5px", marginTop: "0px" }}
+                >
+                  <input
+                    name="department"
+                    type="text"
+                    style={{ width: "13vw" }}
+                  />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-5">
+                  <p>Salary scale </p>
+                </div>
+                <div
+                  className="col-7"
+                  style={{ padding: "5px", marginTop: "0px" }}
+                >
+                  <input
+                    name="salaryScale"
+                    type="text"
+                    style={{ width: "13vw" }}
+                  />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-5">
+                  <p>Annual leave </p>
+                </div>
+                <div
+                  className="col-7"
+                  style={{ padding: "5px", marginTop: "0px" }}
+                >
+                  <input name="leave" type="text" style={{ width: "13vw" }} />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-5">
+                  <p>Overtime </p>
+                </div>
+                <div
+                  className="col-7"
+                  style={{ padding: "5px", marginTop: "0px" }}
+                >
+                  <input
+                    name="overtime"
+                    type="text"
+                    style={{ width: "13vw" }}
+                  />
+                </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-5">
-                <p>Date of birth </p>
-              </div>
-              <div
-                className="col-7"
-                style={{ padding: "5px", marginTop: "0px" }}
-              >
-                <input
-                  id="dob"
-                  type="date"
-                  style={{ width: "13vw" }}
-                  onChange={(e) => handleInputChange(e, "dob", "forDob")}
-                />
-                <p className="text-danger">{errorMessage.forDob}</p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-5">
-                <p>Start date </p>
-              </div>
-              <div
-                className="col-7"
-                style={{ padding: "5px", marginTop: "0px" }}
-              >
-                <input
-                  id="start-date"
-                  type="date"
-                  style={{ width: "13vw" }}
-                  onChange={(e) =>
-                    handleInputChange(e, "startDate", "forStartDate")
-                  }
-                />
-                <p className="text-danger">{errorMessage.forStartDate}</p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-5">
-                <p>Department </p>
-              </div>
-              <div
-                className="col-7"
-                style={{ padding: "5px", marginTop: "0px" }}
-              >
-                <input id="department" type="text" style={{ width: "13vw" }} />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-5">
-                <p>Salary scale </p>
-              </div>
-              <div
-                className="col-7"
-                style={{ padding: "5px", marginTop: "0px" }}
-              >
-                <input
-                  id="salary-scale"
-                  type="text"
-                  style={{ width: "13vw" }}
-                />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-5">
-                <p>Annual leave </p>
-              </div>
-              <div
-                className="col-7"
-                style={{ padding: "5px", marginTop: "0px" }}
-              >
-                <input id="leave" type="text" style={{ width: "13vw" }} />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-5">
-                <p>Overtime </p>
-              </div>
-              <div
-                className="col-7"
-                style={{ padding: "5px", marginTop: "0px" }}
-              >
-                <input id="overtime" type="text" style={{ width: "13vw" }} />
-              </div>
-            </div>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button
-            variant="primary"
-            onClick={() => {
-              handleAddNewStaff();
-            }}
-          >
-            Add
-          </Button>
-        </Modal.Footer>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" type="submit">
+              Add
+            </Button>
+          </Modal.Footer>
+        </form>
       </Modal>
     </>
   );
